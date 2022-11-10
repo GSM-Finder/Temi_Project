@@ -26,12 +26,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val Robot = robot;
-        robot.goTo(intent.getStringExtra("SeatNum")!!)
+        robot.goTo("1학년 1반")
 
         button.setOnClickListener {
-            LocationText.setText("1-3으로 이동 중 입니다.");
+            LocationText.setText("1-1로 이동 중 입니다.");
         }
     }
 }

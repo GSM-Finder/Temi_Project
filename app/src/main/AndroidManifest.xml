@@ -26,5 +26,4 @@
                 android:value="@string/app_name" />
         </activity>
     </application>
-
 </manifest>
