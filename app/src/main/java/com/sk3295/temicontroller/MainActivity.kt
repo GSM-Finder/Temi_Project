@@ -6,15 +6,16 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
+import com.robotemi.sdk.sequence.SequenceModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executors
+
 
 private val executorService = Executors.newSingleThreadExecutor()
 
 class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener {
 
     lateinit var robot: Robot
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
