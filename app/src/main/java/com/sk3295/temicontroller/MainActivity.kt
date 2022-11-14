@@ -1,6 +1,7 @@
 package com.sk3295.temicontroller
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.robotemi.sdk.Robot
@@ -49,5 +50,20 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener {
         description: String
     ) {
         Log.d("location-info", "location: $location, status: $status")
+
+        if (status == "complete") {
+            LocationText.setText("도착 했습니다.");
+            Handler().postDelayed(Runnable {
+                if (location == "1학년 1반") {
+                    LocationText.setText("현재 위치 : 1학년 1반");
+                } else if (location == "1학년 2반") {
+                    LocationText.setText("현재 위치 : 1학년 2반");
+                } else if (location == "1학년 3반") {
+                    LocationText.setText("현재 위치 : 1학년 3반");
+                } else if (location == "1학년 4반") {
+                    LocationText.setText("현재 위치 : 1학년 4반");
+                }
+            }, 5000)
+        }
     }
 }
