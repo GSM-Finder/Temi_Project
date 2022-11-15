@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
+import com.robotemi.sdk.sequence.OnSequencePlayStatusChangedListener
 import com.robotemi.sdk.sequence.SequenceModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executors
@@ -13,8 +14,8 @@ import java.util.concurrent.Executors
 
 private val executorService = Executors.newSingleThreadExecutor()
 
-class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener {
-
+class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
+    OnSequencePlayStatusChangedListener {
     lateinit var robot: Robot
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,5 +67,23 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener {
                 }
             }, 5000)
         }
+    }
+
+    override fun onSequencePlayStatusChanged(
+        status: Int
+    ) {
+        var SequenceInfo = ""
+
+        if (status == 0) {
+            SequenceInfo = "Finish playing"
+        } else if (status == 1) {
+            SequenceInfo = "Source preparing"
+        } else if (status == 2) {
+            SequenceInfo = "Playing"
+        } else if (status == -1) {
+            SequenceInfo = "Errors occurred while playing"
+        }
+
+        Log.d("sequence-info", "status: $SequenceInfo")
     }
 }
