@@ -60,4 +60,12 @@
             android:text="1-4" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/Test_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시퀀스 테스트"
+        tools:layout_editor_absoluteX="1813dp"
+        tools:layout_editor_absoluteY="56dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

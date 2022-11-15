@@ -1,5 +1,6 @@
 package com.sk3295.temicontroller
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -7,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
 import com.robotemi.sdk.sequence.OnSequencePlayStatusChangedListener
-import com.robotemi.sdk.sequence.SequenceModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executors
 
@@ -17,12 +17,16 @@ private val executorService = Executors.newSingleThreadExecutor()
 class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
     OnSequencePlayStatusChangedListener {
     lateinit var robot: Robot
+    @SuppressLint("WrongThread")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         robot = Robot.getInstance()
+        robot.addOnSequencePlayStatusChangedListener(this)
         robot.addOnGoToLocationStatusChangedListener(this)
+
+        robot.getAllSequences(listOf("1학년 교실 안내"))
 
         button1.setOnClickListener {
             LocationText.setText("1-1로 이동 중 입니다.");
@@ -42,6 +46,10 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
         button4.setOnClickListener {
             LocationText.setText("1-4로 이동 중 입니다.");
             robot.goTo("1학년 4반")
+        }
+
+        Test_Button.setOnClickListener {
+            robot.playSequence("1학년 교실 안내");
         }
     }
 
