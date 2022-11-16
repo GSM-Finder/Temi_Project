@@ -49,9 +49,12 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
         }
 
         Test_Button.setOnClickListener {
-            robot.playSequence("1학년 교실 안내");
+            LocationText.setText("시퀀스 테스트 중 입니다.")
+            robot.playSequence("1학년 교실 안내")
         }
     }
+
+
 
     override fun onGoToLocationStatusChanged(
         location: String,
