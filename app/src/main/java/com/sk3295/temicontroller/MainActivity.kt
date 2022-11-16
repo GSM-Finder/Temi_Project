@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
         robot.addOnSequencePlayStatusChangedListener(this)
         robot.addOnGoToLocationStatusChangedListener(this)
 
+        // 현재 시퀀스 기능 사용 금지
         robot.getAllSequences(listOf("1학년 교실 안내"))
 
         button1.setOnClickListener {
