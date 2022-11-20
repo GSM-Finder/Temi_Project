@@ -23,7 +23,6 @@
         android:id="@+id/LocationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="600dp"
         android:text="위치 정보 없음"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,9 +43,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="900dp"
             android:layout_marginTop="200dp"
-            android:layout_marginEnd="900dp"
+            android:layout_marginEnd="100dp"
             android:layout_marginBottom="200dp"
             android:orientation="vertical">
 
