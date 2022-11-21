@@ -47,10 +47,6 @@ class MainActivity : AppCompatActivity(), OnGoToLocationStatusChangedListener,
         button4.setOnClickListener {
             LocationText.setText("1-4로 이동 중 입니다.");
             robot.goTo("1학년 4반")
-        }
-
-        Test_Button.setOnClickListener {
-            LocationText.setText("시퀀스 테스트 중 입니다.")
             robot.playSequence("1학년 교실 안내")
         }
     }
