@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
+    android:id="@+id/topTap"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:layout_height="?attr/actionBarSize"
             android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"></androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout
@@ -25,103 +28,40 @@
             app:tabTextAppearance="@style/menuTabText">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/navigateTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="길 안내" />
+                android:text="@string/navTabText" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/floorIntroduceTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="층 소개" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/schoolIntroduceTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="학교 소개" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/optionTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="설정" />
         </com.google.android.material.tabs.TabLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-        <TextView
-            android:id="@+id/LocationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
-            android:text="위치 정보 없음"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="450dp"
-            android:layout_marginEnd="32dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LocationText"
-            app:layout_constraintVertical_bias="1.0">
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_weight="0.8"
-                android:layout_marginTop="50dp"
-                android:text="1-1"
-                android:background="@drawable/round_button"
-                android:textSize="34sp" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="50dp"
-                android:layout_weight="0.8"
-                android:text="1-2"
-                android:background="@drawable/round_button"
-                android:textSize="34sp" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="50dp"
-                android:layout_weight="0.8"
-                android:text="1-3"
-                android:background="@drawable/round_button"
-                android:textSize="34sp" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:layout_weight="0.8"
-                android:layout_marginTop="50dp"
-                android:text="1-4"
-                android:background="@drawable/round_button"
-                android:textSize="34sp" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--</layout>-->

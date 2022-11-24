@@ -8,6 +8,13 @@ android {
     namespace 'com.sk3295.temicontroller'
     compileSdk 32
 
+    buildFeatures {
+        viewBinding = true
+    }
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.sk3295.temicontroller"
         minSdk 23

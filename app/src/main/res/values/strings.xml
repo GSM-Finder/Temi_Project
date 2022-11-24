@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TemiController</string>
     <string name="floor_btn_name">Floor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navTabText">길 안내</string>
+
 </resources>
