@@ -20,7 +20,10 @@ private val executorService = Executors.newSingleThreadExecutor()
 public class NavigateFragment : OnGoToLocationStatusChangedListener,
     OnSequencePlayStatusChangedListener, Fragment() {
     lateinit var robot: Robot
+    val ids = Robot.getInstance().getAllSequences().map { it.id }
+
     @SuppressLint("WrongThread")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +33,7 @@ public class NavigateFragment : OnGoToLocationStatusChangedListener,
         robot.addOnGoToLocationStatusChangedListener(this)
         // 현재 시퀀스 기능 사용 금지
         robot.getAllSequences(listOf("1학년 교실 안내"))
+        Log.d("sequence-info", "SequenceId: $ids")
 
         return inflater.inflate(R.layout.navigate_fragment, container, false)
     }
