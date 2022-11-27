@@ -6,15 +6,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FloorIntroduceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="학교 설명"
-        android:textSize="20sp"
+    <Button
+        android:id="@+id/Sequence_1"
+        android:layout_width="1000px"
+        android:layout_height="150px"
+        android:layout_marginTop="400dp"
+        android:text="4층 소개 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/Seqence_Debug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Sequence_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

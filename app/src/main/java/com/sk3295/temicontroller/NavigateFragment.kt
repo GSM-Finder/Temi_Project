@@ -22,7 +22,7 @@ public class NavigateFragment : OnGoToLocationStatusChangedListener,
     lateinit var robot: Robot
     val ids = Robot.getInstance().getAllSequences().map { it.id }
 
-    @SuppressLint("WrongThread")
+    @SuppressLint("WrongThread", "CheckResult")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,7 @@ public class NavigateFragment : OnGoToLocationStatusChangedListener,
         robot.addOnSequencePlayStatusChangedListener(this)
         robot.addOnGoToLocationStatusChangedListener(this)
         // 현재 시퀀스 기능 사용 금지
-        robot.getAllSequences(listOf("1학년 교실 안내"))
+        robot.getAllSequences(ids)
         Log.d("sequence-info", "SequenceId: $ids")
 
         return inflater.inflate(R.layout.navigate_fragment, container, false)
@@ -89,18 +89,18 @@ public class NavigateFragment : OnGoToLocationStatusChangedListener,
     override fun onSequencePlayStatusChanged(
         status: Int
     ) {
-        var SequenceInfo = ""
+        var sequenceInfo = ""
 
         if (status == 0) {
-            SequenceInfo = "Finish playing"
+            sequenceInfo = "Finish playing"
         } else if (status == 1) {
-            SequenceInfo = "Source preparing"
+            sequenceInfo = "Source preparing"
         } else if (status == 2) {
-            SequenceInfo = "Playing"
+            sequenceInfo = "Playing"
         } else if (status == -1) {
-            SequenceInfo = "Errors occurred while playing"
+            sequenceInfo = "Errors occurred while playing"
         }
 
-        Log.d("sequence-info", "status: $SequenceInfo")
+        Log.d("sequence-info", "status: $sequenceInfo")
     }
 }
