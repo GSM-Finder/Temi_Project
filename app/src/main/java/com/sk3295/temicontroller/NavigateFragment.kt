@@ -1,4 +1,4 @@
-package com.sk3295.temicontroller;
+package com.sk3295.temicontroller
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.robotemi.sdk.Robot
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
 import com.robotemi.sdk.sequence.OnSequencePlayStatusChangedListener
 import kotlinx.android.synthetic.main.navigate_fragment.*
+import kotlinx.android.synthetic.main.navigate_fragment.view.*
 import java.util.concurrent.Executors
 
 
@@ -34,33 +35,30 @@ public class NavigateFragment : OnGoToLocationStatusChangedListener,
         // 현재 시퀀스 기능 사용 금지
         robot.getAllSequences(ids)
         Log.d("sequence-info", "SequenceId: $ids")
+        val view = inflater.inflate(R.layout.navigate_fragment, container, false)
 
-        return inflater.inflate(R.layout.navigate_fragment, container, false)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        button1.setOnClickListener {
-            LocationText.setText("1-1로 이동 중 입니다.");
+        view.button1.setOnClickListener{
+            LocationText.text = "1-1로 이동 중 입니다."
             robot.goTo("1학년 1반")
         }
 
-        button2.setOnClickListener {
-            LocationText.setText("1-2로 이동 중 입니다.");
+        view.button2.setOnClickListener {
+            LocationText.text = "1-2로 이동 중 입니다."
             robot.goTo("1학년 2반")
         }
 
-        button3.setOnClickListener {
-            LocationText.setText("1-3로 이동 중 입니다.");
+        view.button3.setOnClickListener {
+            LocationText.text = "1-3로 이동 중 입니다."
             robot.goTo("1학년 3반")
         }
 
-        button4.setOnClickListener {
-            LocationText.setText("1-4로 이동 중 입니다.");
+        view.button4.setOnClickListener {
+            LocationText.text = "1-4로 이동 중 입니다."
             robot.goTo("1학년 4반")
             robot.playSequence("1학년 교실 안내")
         }
+
+        return view
     }
     override fun onGoToLocationStatusChanged(
         location: String,

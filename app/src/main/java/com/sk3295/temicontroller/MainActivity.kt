@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(NavigateFragment(), "길 찾기")
+        adapter.addFragment(NavigateFragment(), "길 안내")
         adapter.addFragment(FloorIntroduceFragment(), "층 소개")
         adapter.addFragment(SchoolIntroduceFragment(), "학교 소개")
         adapter.addFragment(OptionFragment(), "설정")
